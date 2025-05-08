@@ -82,12 +82,12 @@ void FlipandBuildFrom(int start_site_idx, int L, double p_connect) {
     M[newstate] += sites_in_cluster.size();
 }
 
-// Calculate the local "magnetization" mj
+// Calculate magnetization
 complex<double> local_magnetization(int spin_state) {
     return exp(complex<double>(0.0, (2.0 * PI / q) * spin_state));
 }
 
-// Calculate the order parameter or "magnetization per site" m
+//Calculate magnetization per site
 complex<double> calculate_magnetization(int L) {
     int N = L * L;
     complex<double> sum_mj(0.0, 0.0);
@@ -100,10 +100,10 @@ complex<double> calculate_magnetization(int L) {
 int main() {
     srand(static_cast<unsigned>(time(0)));
 
-    int NESTEPS = 50000;   // Number of equilibration steps
-    int NMSTEPS = 100000;  // Number of measurement MC sweeps
-    int MEASURE_INTERVAL = 100; // Interval between measurements
-    int NUM_RUNS = 10;      // Number of independent runs per (T, L)
+    int NESTEPS = 50000;  
+    int NMSTEPS = 100000;  
+    int MEASURE_INTERVAL = 100;
+    int NUM_RUNS = 10;      
 
     vector<int> L_values = {8, 16, 32}; // Different system sizes
     vector<double> temperatures;

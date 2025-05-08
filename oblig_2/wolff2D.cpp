@@ -6,8 +6,8 @@
 #include <queue>
 #include <algorithm>
 #include <numeric>
-#include <fstream> // For saving data to a file
-#include <complex> // For complex numbers
+#include <fstream>
+#include <complex>
 
 using namespace std;
 
@@ -91,11 +91,8 @@ complex<double> local_magnetization(int spin_state) {
     return exp(complex<double>(0.0, (2.0 * PI / q) * spin_state));
 }
 
-// double calculate_magnetization() {
-//     return static_cast<double>(q * M[0] - N) / (N * (q - 1));
-// }
+
 complex<double> calculate_magnetization() {
-    // int N = L * L;
     complex<double> sum_mj(0.0, 0.0);
     for (int j = 0; j < N; ++j) {
         sum_mj += local_magnetization(S[j]);
